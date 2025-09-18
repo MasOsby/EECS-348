@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Practice 3-Password Verification</title>
+    </head>
+    <body>
+        <h1>EECS 348 Lab 3 Practice 3- Password Verification</h1>
+        <!-- Inputs -->
+         <label for="psw1">Enter Password</label>
+         <input type="password" id="psw1"><br>
+         <label for="psw2">Re-enter password: </label>
+         <input type="password" id="psw2"><br>
+         <button onclick="checkPassword()">Verify</button>
+         <p id="result"></p>
+
+         <script>
+            function checkPassword(){
+                const psw1 = document.getElementById("psw1").value;
+                const psw2 = document.getElementById("psw2").value;
+                const result = document.getElementById("result")
+
+                if (psw1.length < 8) {
+                alert("Error: Password must be at least 8 characters long.");
+                result.textContent = "Password too short.";
+                result.style.color = "red";
+                return;
+                }
+                if (psw1 !== psw2) {
+                    alert("Error: Passwords do not match.");
+                    result.textContent = "Passwords do not match.";
+                    result.style.color = "red";
+                    return;
+                }
+                alert("Success: Passwords match!");
+                result.textContent = "Passwords match!";
+                result.style.color = "green";
+                }
+
+         </script>
+         
+    </body>
+</html>

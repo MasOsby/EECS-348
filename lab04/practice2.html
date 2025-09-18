@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>EECS 348 lab 3 Practice 2 - CSS Update</title>
+    <style>
+        #textBox {
+            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>EECS 348 lab 3 Practice 2 - CSS Update</h1>
+    <p> Use Controls below to change the <b>text color</b> and <b>width</b> of the box</p>
+
+    <!--Controls-->
+    <label for="colorInput">Text Color (Hex or CSS): </label>
+    <input type="text" id="colorInput" placeholder="ex: #00ff00 or red"><br>
+    <label for="widthInput">Width (px)</label>
+    <input type="number" id="widthInput" placeholder="ex: 300"><br>
+
+    <button onclick="updateCSS()">Apply Changes</button>
+
+    <hr> 
+
+    <div id="textBox">
+        Sample Text, Change my Color and Width!
+    </div>
+
+    <script>
+        function updateCSS(){
+            const color = document.getElementById("colorInput").value;
+            const width = document.getElementById("widthInput").value;
+            const box = document.getElementById("textBox");
+            if (color){
+                box.style.color = color;
+            }
+            if (width){
+                box.style.width = width + "px";
+            }
+        }
+    </script>
+</body>
+</html>

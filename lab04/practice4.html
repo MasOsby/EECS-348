@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Practice 4 - Multiplication Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px 10px;
+            text-align: right;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>EECS 348 lab 3 Practice 4</h1>
+        <form method="post">
+            <label for="num">Enter a number (N): </label>
+            <input type="number" id="num" name="num" min="1" max="50" required>
+            <button type="submit">Generate</button>
+        </form>
+        <hr>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $n = intval($_POST["num"]);
+
+            if ($n < 1) {
+                echo "<p style='color:red;'>Please enter a number greater than 0.</p>";
+            } else {
+                echo "<h2>Multiplication Table up to $n × $n</h2>";
+                echo "<table>";
+                // Header row
+                echo "<tr><th></th>";
+                for ($col = 1; $col <= $n; $col++) {
+                    echo "<th>$col</th>";
+                }
+                echo "</tr>";
+
+                // Table body
+                for ($row = 1; $row <= $n; $row++) {
+                    echo "<tr>";
+                    echo "<th>$row</th>"; // Row header
+                    for ($col = 1; $col <= $n; $col++) {
+                        echo "<td>" . ($row * $col) . "</td>";
+                    }
+                    echo "</tr>";
+                }
+                echo "</table>";
+            }
+        }
+        ?>
+        
+    </body>
+</html>
